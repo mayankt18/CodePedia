@@ -1,0 +1,17 @@
+{% extends 'app/bighome.html' %}
+
+{% block internal %}
+<div class="mx-auto w-10/12 p-2">
+    <p class="text-center text-white text-2xl font-normal my-2">My Snippets</p>
+    <div class="grid grid-cols-8 gap-3" style="min-height: 65vh;">
+        {% for s in snippets %}
+        <div class="col-span-2 bg-black border-2 text-white h-fit rounded-md">
+            <p class="text-center text-white text-xl font-light my-2">{{s.title}}</p>
+            <p class="text-center text-white text-sm font-light my-2">{{s.description}}</p>
+            <p class="text-center text-white text-lg font-light my-2">Snippet Code</p>
+            <pre class="text-white ml-3 mt-5 mb-2 text-sm font-light">{{s.snippet}}</pre>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

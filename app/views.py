@@ -37,17 +37,27 @@ def register(request):
 @login_required
 def add_snippet(request):
     if request.method=="POST":
+        user = request.user
         title  = request.POST.get('title')
         description = request.POST.get('description')
         snippet = request.POST.get('snippet')
-        Snippet.objects.create(title=title, description=description, snippet=snippet)
-        return HttpResponseRedirect(reverse('profile'))
+        language = request.POST.get('language')
+        Snippet.objects.create(user=user, title=title, description=description, snippet=snippet, snippet_language=language)
+        return HttpResponseRedirect(reverse('home'))
+
     return render(request, 'app/pages/add.html')
 
 
 @login_required
 def profile(request):
-    return render(request, 'app/pages/profile.html')
+    user = request.user
+    snippets = Snippet.objects.filter(user=request.user)
+    context = {
+        'user':user,
+        'snippets':snippets,
+    }
+    return render(request, 'app/pages/profile.html', context)
+
 
 
 def get_snippets_data(request):
@@ -69,3 +79,5 @@ def get_snippets_data(request):
         'data':snippet_data,
     }
     return JsonResponse(response)
+
+

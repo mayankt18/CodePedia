@@ -1,0 +1,48 @@
+{% extends 'app/home.html' %}
+
+{% block internal %}
+<div class="bg-black text-slate-100 opacity-70 flex my-5 p-3 rounded-md justify-center w-10/12 mx-auto border-2">
+
+    <div>
+        <form action="{% url 'add' %}" method="POST">
+            {% csrf_token %}
+
+            <div class="flex justify-between">
+                <div class="">
+                    <label for="title" class="font-normal">Title</label>
+                    <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 
+                    text-gray-700 
+            leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="title" type="text"
+                        placeholder="title" required name="title" autocomplete="off" size="35">
+                </div>
+
+
+                <div class="">
+                    <label for="language" class="font-normal">Language</label>
+                    <input required type="text" name="language" id="" class="bg-gray-200 appearance-none border-2 border-gray-200 
+                    rounded w-full py-2 px-4 text-gray-700 
+            leading-tight focus:outline-none focus:bg-white focus:border-purple-500" placeholder="language" size="15">
+                </div>
+
+
+            </div>
+            <label for="description" class="font-normal">Description</label>
+            <textarea required name="description" id="description" cols="30" rows="7" class="bg-gray-200 appearance-none border-2 
+            border-gray-200 rounded w-full py-2 px-4 text-gray-700 
+            leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                placeholder="Short description which will be visible with the snippet"></textarea>
+
+            <label for="snippet" class="font-normal">Snippet</label>
+            <textarea required name="snippet" id="snippet" cols="30" rows="7" class="bg-gray-200 appearance-none border-2 
+            border-gray-200 rounded w-full py-2 px-4 text-gray-700 
+            leading-tight focus:outline-none focus:bg-white focus:border-purple-500" placeholder="#include<iostream>
+                    "></textarea>
+
+            <div class="text-center mt-2">
+                <input type="submit" value="Add Snippet" class="bg-black hover:bg-gray-200 text-white hover:text-black font-semibold 
+            py-2 px-4 border border-gray-400 rounded shadow">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

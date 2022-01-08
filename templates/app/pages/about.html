@@ -1,34 +1,37 @@
 {% extends 'app/home.html' %}
 
 {% block internal %}
-<div class="text-slate-100 flex
+<div class="flex-grow">
+    <div class="text-slate-100 flex
 my-5 p-3 rounded-md w-10/12 mx-auto content-between">
 
-    <div id="info" class="bg-black mt-9 p-3 border-t-2 rounded-lg mr-auto w-7/12">
-        <p class="text-lg font-normal">CodePedia is a an open source platform for code snippets.</p>
-        <br>
-        <p class="text-lg font-normal">You can use it to share and download code snippets which you can be done using
-            the "CodePedia" vs code extension.</p>
-        <br>
-        <p class="text-lg font-normal">This project is built during the DotSlash 5.0 hackathon.</p>
-        <br>
-        <p class="text-lg mt-2 text-center">Want to add a snippet?</p>
-        <br>
-        <div class="text-center">
-            <a href="#"
-                class="bg-black hover:bg-gray-200 text-white hover:text-black font-semibold py-2 px-4 border border-gray-400 rounded shadow">Get
-                Started</a>
-        </div>
-    </div>
-
-    <div class="text-white text-right mt-9">
-        <div class="h-auto  border-r-4 mt-9">
-            <p class="text-6xl mr-3 font-bold">WELCOME TO </p>
-            <p class="text-6xl mr-3 font-bold">CODEPEDIA</p>
+        <div id="info" class="bg-black mt-9 p-3 border-t-2 rounded-lg mr-auto w-7/12">
+            <p class="text-lg font-normal">CodePedia is a an open source platform for code snippets.</p>
             <br>
-            <p class="text-2xl mr-3">THE PLATFORM FOR USER SNIPPETS</p>
+            <p class="text-lg font-normal">You can use it to share and download code snippets which you can be done
+                using
+                the "CodePedia" vs code extension.</p>
+            <br>
+            <p class="text-lg font-normal">This project is built during the DotSlash 5.0 hackathon.</p>
+            <br>
+            <p class="text-lg mt-2 text-center">Want to add a snippet?</p>
+            <br>
+            <div class="text-center">
+                <a href="{% url 'login' %}" class="bg-black hover:bg-gray-200 text-white hover:text-black font-semibold 
+                    py-2 px-4 border border-gray-400 rounded shadow">Get
+                    Started</a>
+            </div>
         </div>
-    </div>
 
+        <div class="text-white text-right mt-9">
+            <div class="h-auto  border-r-4 mt-9">
+                <p class="text-6xl mr-3 font-bold">WELCOME TO </p>
+                <p class="text-6xl mr-3 font-bold">CODEPEDIA</p>
+                <br>
+                <p class="text-2xl mr-3">THE PLATFORM FOR USER SNIPPETS</p>
+            </div>
+        </div>
+
+    </div>
 </div>
 {% endblock %}
