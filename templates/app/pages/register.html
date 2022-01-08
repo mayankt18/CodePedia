@@ -1,0 +1,75 @@
+{% extends 'app/home.html' %}
+
+{% block internal %}
+<div class="text-slate-100 opacity-70 my-5 p-3 rounded-md 
+w-10/12 mx-auto">
+    <p class="text-3xl text-center font-normal text-white">Register to CodePedia</p>
+    <form class="w-full max-w-sm mx-auto mt-5" method="POST" action="{% url 'register' %}">
+        {% csrf_token %}
+
+        {% for fm in form %}
+        <small class="text-red-700 font-normal text-sm text-center my-2">
+            {{fm.errors|striptags}}</small>
+        {% endfor %}
+
+        <div class="md:flex md:items-center mb-6">
+            <div class="md:w-1/3">
+                <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                    Username
+                </label>
+            </div>
+            <div class="md:w-2/3">
+                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight 
+                    focus:outline-none focus:bg-white focus:border-purple-500" id="id_username" type="text"
+                    placeholder="username" name="username">
+            </div>
+        </div>
+
+
+        <div class="md:flex md:items-center mb-6">
+            <div class="md:w-1/3">
+                <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="id_password1">
+                    Password
+                </label>
+            </div>
+            <div class="md:w-2/3">
+                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight 
+                    focus:outline-none focus:bg-white focus:border-purple-500" id="id_password1" type="password"
+                    placeholder="******************" required name="password1" autocomplete="off">
+            </div>
+        </div>
+
+        <div class="md:flex md:items-center mb-6">
+            <div class="md:w-1/3">
+                <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="id_password1">
+                    Confirm Password
+                </label>
+            </div>
+            <div class="md:w-2/3">
+                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight 
+                    focus:outline-none focus:bg-white focus:border-purple-500" id="id_password2" type="password"
+                    placeholder="******************" required name="password2" autocomplete="off">
+            </div>
+        </div>
+
+        <div class="md:flex md:items-center mb-6 content-center">
+            <div class="md:w-1/3">
+                <a href="{% url 'login' %}">Already have an account?</a>
+            </div>
+            <div class="md:w-2/3 content-between flex">
+                <input type="submit" value="SignUp" class="bg-black hover:bg-gray-200 text-white 
+                hover:text-black font-semibold py-2 px-4 border border-gray-400 
+                    rounded shadow mx-auto w-100 hover:cursor-pointer">
+            </div>
+
+
+        </div>
+        {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+        <p class="text-red-600 font-normal mx-auto">{{error}}</p>
+        {% endfor %}
+        {% endif %}
+    </form>
+
+</div>
+{% endblock %}

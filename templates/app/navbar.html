@@ -1,0 +1,44 @@
+{% load static tailwind_tags %}
+
+<head>
+    {% tailwind_css %}
+</head>
+
+<nav class="">
+    <div class="bg-black text-slate-100 opacity-70 flex my-5 p-3 rounded-md justify-center w-10/12 mx-auto border-2">
+
+        <div id="icon" class="m-2 p-1">
+            <a href="{% url 'home' %}">
+                <p class="text-2xl hover:font-medium">CodePedia</p>
+            </a>
+        </div>
+        <div id="add-snippet" class="m-2 p-1">
+            <a href="{% url 'add' %}">
+                <p class="text-2xl hover:font-medium">Add</p>
+            </a>
+        </div>
+        {% if request.user.is_authenticated %}
+        <div id="signup" class="m-2 p-1">
+            <a href="{% url 'profile' %}">
+                <p class="text-2xl hover:font-medium">Profile</p>
+            </a>
+        </div>
+        <div id="signup" class="m-2 p-1">
+            <a href="{% url 'logout' %}">
+                <p class="text-2xl hover:font-medium">Logout</p>
+            </a>
+        </div>
+        {% else %}
+        <div id="signup" class="m-2 p-1">
+            <a href="{% url 'register' %}">
+                <p class="text-2xl hover:font-medium">Signup</p>
+            </a>
+        </div>
+        <div id="signin" class="m-2 p-1">
+            <a href="{% url 'login' %}">
+                <p class="text-2xl hover:font-medium">Login</p>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</nav>

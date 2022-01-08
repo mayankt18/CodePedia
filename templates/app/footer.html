@@ -1,0 +1,21 @@
+{% load static tailwind_tags %}
+{% load static %}
+
+<head>
+    {% tailwind_css %}
+
+</head>
+
+<footer class="mt-auto">
+    <div
+        class="bg-black text-slate-100 opacity-70 flex m-3 p-2 rounded-md justify-center w-10/12 mx-auto border-t-2 align-middle">
+        <div id="github">
+            <a href="http://github.com/mayankt18" target="__blank">
+                <img src="{% static 'images/github-light.png' %}" alt="github"></a>
+        </div>
+        <div id="copyright" class="text-lg ml-4 mt-1">
+            Made with ❤️ by Debug Thugs
+        </div>
+
+    </div>
+</footer>
