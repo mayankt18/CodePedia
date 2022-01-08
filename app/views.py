@@ -7,6 +7,8 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+import json
+import ast
 
 
 def home(request):
@@ -53,8 +55,10 @@ def get_snippets_data(request):
     snippet_data = []
     
     for s in snippets:
+        body = ast.literal_eval(s.snippet_body)
+        snippet = json.dumps(body)
         data = {
-            'body':s.snippet_body,
+            'body':snippet,
             'description':s.description,
             'language':s.snippet_language
         }
